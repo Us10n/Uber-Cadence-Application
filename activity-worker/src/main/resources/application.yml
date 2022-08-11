@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+weatherApi:
+  url: https://api.openweathermap.org/{endpoint}
+  id: ebd6f86c615c06d3606d3579f5dba716
+  units: metric
+  endpoints:
+    currentWeather: data/2.5/weather
