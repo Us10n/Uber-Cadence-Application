@@ -4,4 +4,6 @@ include 'activity-worker'
 include 'workflow-worker'
 include 'workflow-launcher'
 include 'activity'
+include 'registration'
+include 'workflow'
 

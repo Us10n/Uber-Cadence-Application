@@ -11,7 +11,5 @@ public interface WeatherMapper {
 
     WeatherDto mapToDto(Weather weather);
 
-    WeatherDto mapToDto(Map<String, Object> map);
-
     Weather mapToEntity(WeatherDto weatherDto);
 }

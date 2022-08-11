@@ -6,6 +6,7 @@ plugins {
 dependencies {
     implementation project(':domain')
     implementation project(':activity')
+    implementation project(':registration')
     implementation 'com.uber.cadence:cadence-client:3.7.1'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'

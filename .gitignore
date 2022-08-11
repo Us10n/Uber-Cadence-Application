@@ -1,0 +1,16 @@
+#ignore idea folders
+/.idea
+
+#ignore gradle folders
+/.gradle
+/gradle
+
+#ignore build folders
+/activity/build
+/activity-worker/build
+/domain/build
+/workflow-launcher/build
+/workflow-worker/build
+/registration/build
+/workflow/build
+/build
