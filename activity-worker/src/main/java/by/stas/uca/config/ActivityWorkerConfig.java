@@ -11,6 +11,4 @@ public class ActivityWorkerConfig {
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
-
-
 }

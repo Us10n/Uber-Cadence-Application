@@ -20,8 +20,12 @@ public class WeatherWorkflowImpl implements WeatherWorkflow {
     @Override
     public Optional<WeatherDto> start(String cityName) {
         Optional<WeatherDto> weatherDtoOptional = weatherApiActivity.loadCurrentWeather(cityName);
-        weatherDtoOptional.ifPresent(weatherDbActivity::save);
+        Optional<WeatherDto> workflowResult = Optional.empty();
+        if (weatherDtoOptional.isPresent()) {
+            WeatherDto savedDto = weatherDbActivity.save(weatherDtoOptional.get());
+            workflowResult = Optional.of(savedDto);
+        }
 
-        return weatherDtoOptional;
+        return workflowResult;
     }
 }

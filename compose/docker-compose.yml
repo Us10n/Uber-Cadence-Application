@@ -4,6 +4,8 @@ services:
     image: cassandra:3.11
     ports:
       - "9042:9042"
+    mem_limit: 1000m
+
   prometheus:
     image: prom/prometheus:latest
     volumes:
@@ -12,10 +14,14 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - '9090:9090'
+    mem_limit: 500m
+
   node-exporter:
     image: prom/node-exporter
     ports:
       - '9100:9100'
+    mem_limit: 400m
+
   cadence:
     image: ubercadence/server:0.24.0-auto-setup
     ports:
@@ -38,6 +44,8 @@ services:
     depends_on:
       - cassandra
       - prometheus
+    mem_limit: 500m
+
   cadence-web:
     image: ubercadence/web:v3.29.6
     environment:
@@ -46,6 +54,8 @@ services:
       - "8088:8088"
     depends_on:
       - cadence
+    mem_limit: 500m
+
   grafana:
     image: grafana/grafana
     user: "1000"
@@ -53,3 +63,4 @@ services:
       - prometheus
     ports:
       - '3000:3000'
+    mem_limit: 300m

@@ -4,12 +4,11 @@ import by.stas.uca.registrar.impl.WorkflowRegistrarImpl;
 import by.stas.uca.workflow.impl.WeatherWorkflowImpl;
 
 public class WorkflowWorkerMain {
+
+    private static final String DOMAIN_NAME="testDomainName";
+    private static final String TASK_LIST="testTaskList";
+
     public static void main(String[] args) {
-        if(args.length < 2){
-            throw new IllegalArgumentException("Invalid application parameters. Parameter signature is: domain name, task-list name.");
-        }
-        String domainName=args[0];
-        String taskList=args[1];
-        new WorkflowRegistrarImpl().register(domainName, taskList, WeatherWorkflowImpl.class);
+        new WorkflowRegistrarImpl().register(DOMAIN_NAME, TASK_LIST, WeatherWorkflowImpl.class);
     }
 }

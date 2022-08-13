@@ -15,10 +15,10 @@ import java.util.List;
 
 @Configuration
 public class CadenceConfig {
-    @Value("${cadence.domain: default}")
+    @Value("${cadence.domain:default}")
     private String domainName;
 
-    @Value("${cadence.task-list: default}")
+    @Value("${cadence.task-list:default}")
     private String taskList;
 
     @Bean
@@ -39,7 +39,7 @@ public class CadenceConfig {
                                                ActivityRegistrar activityRegistration) {
         return args -> {
             domainRegistration.register(domainName);
-            activityRegistration.register(domainName, taskList, List.of(weatherApiActivity, weatherDbActivity));
+            activityRegistration.register(domainName, taskList, weatherApiActivity, weatherDbActivity);
         };
     }
 }

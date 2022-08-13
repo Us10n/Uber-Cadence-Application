@@ -8,11 +8,9 @@ import com.uber.cadence.serviceclient.WorkflowServiceTChannel;
 import com.uber.cadence.worker.Worker;
 import com.uber.cadence.worker.WorkerFactory;
 
-import java.util.List;
-
 public class ActivityRegistrarImpl implements ActivityRegistrar {
     @Override
-    public void register(String domainName, String taskListName, List<Object> activities) {
+    public void register(String domainName, String taskListName, Object... activities) {
         WorkflowClient workflowClient =
                 WorkflowClient.newInstance(
                         new WorkflowServiceTChannel(ClientOptions.defaultInstance()),

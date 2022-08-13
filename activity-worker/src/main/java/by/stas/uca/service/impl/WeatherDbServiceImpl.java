@@ -8,6 +8,8 @@ import by.stas.uca.service.WeatherDbService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @AllArgsConstructor
 public class WeatherDbServiceImpl implements WeatherDbService {
@@ -18,6 +20,7 @@ public class WeatherDbServiceImpl implements WeatherDbService {
     @Override
     public WeatherDto save(WeatherDto weatherDto) {
         Weather entityToSave = weatherMapper.mapToEntity(weatherDto);
+        entityToSave.setDate(LocalDateTime.now());
         weatherRepository.save(entityToSave);
         return weatherMapper.mapToDto(entityToSave);
     }

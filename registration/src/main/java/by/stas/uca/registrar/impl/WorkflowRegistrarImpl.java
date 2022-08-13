@@ -8,8 +8,6 @@ import com.uber.cadence.serviceclient.WorkflowServiceTChannel;
 import com.uber.cadence.worker.Worker;
 import com.uber.cadence.worker.WorkerFactory;
 
-import java.util.List;
-
 public class WorkflowRegistrarImpl implements WorkflowRegistrar {
     @Override
     public void register(String domainName, String taskListName, Class<?> workflowClass) {
@@ -17,10 +15,10 @@ public class WorkflowRegistrarImpl implements WorkflowRegistrar {
                 WorkflowClient.newInstance(
                         new WorkflowServiceTChannel(ClientOptions.defaultInstance()),
                         WorkflowClientOptions.newBuilder().setDomain(domainName).build());
-        // Get worker to poll the task list.
         WorkerFactory factory = WorkerFactory.newInstance(workflowClient);
         Worker worker = factory.newWorker(taskListName);
         worker.registerWorkflowImplementationTypes(workflowClass);
+
         factory.start();
     }
 }

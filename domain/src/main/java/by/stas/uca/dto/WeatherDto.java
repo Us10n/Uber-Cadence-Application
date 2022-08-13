@@ -9,8 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class WeatherDto {
-    private Long id;
+public class WeatherDto{
     private LocalDateTime date;
     private String cityName;
     private Float aitTemperature;

@@ -4,9 +4,7 @@ import by.stas.uca.dto.WeatherDto;
 import by.stas.uca.entity.Weather;
 import org.mapstruct.Mapper;
 
-import java.util.Map;
-
-@Mapper
+@Mapper(componentModel = "spring")
 public interface WeatherMapper {
 
     WeatherDto mapToDto(Weather weather);

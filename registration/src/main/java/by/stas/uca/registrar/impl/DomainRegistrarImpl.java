@@ -8,7 +8,7 @@ import com.uber.cadence.serviceclient.WorkflowServiceTChannel;
 import org.apache.thrift.TException;
 
 public class DomainRegistrarImpl implements DomainRegistrar {
-    private static final Integer RETENTION_PERIOD = 1;
+    private static final Integer RETENTION_PERIOD = 3;
 
     @Override
     public void register(String domainName) {
