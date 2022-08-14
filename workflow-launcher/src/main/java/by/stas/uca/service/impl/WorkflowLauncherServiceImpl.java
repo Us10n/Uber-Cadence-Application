@@ -1,7 +1,7 @@
 package by.stas.uca.service.impl;
 
 import by.stas.uca.dto.WeatherDto;
-import by.stas.uca.exception.WorkflowEmptyResult;
+import by.stas.uca.exception.WorkflowEmptyResultException;
 import by.stas.uca.service.WorkflowLauncherService;
 import by.stas.uca.workflow.WeatherWorkflow;
 import com.uber.cadence.client.WorkflowClient;
@@ -17,7 +17,7 @@ public class WorkflowLauncherServiceImpl implements WorkflowLauncherService {
     @Override
     public WeatherDto launch(String cityName) {
         WeatherWorkflow workflow = client.newWorkflowStub(WeatherWorkflow.class);
-        WeatherDto weatherDto = workflow.start(cityName).orElseThrow(WorkflowEmptyResult::new);
+        WeatherDto weatherDto = workflow.start(cityName).orElseThrow(WorkflowEmptyResultException::new);
         return weatherDto;
     }
 }
