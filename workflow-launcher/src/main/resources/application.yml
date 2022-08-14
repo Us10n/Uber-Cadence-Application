@@ -1,0 +1,6 @@
+server:
+  port: 8081
+
+cadence:
+  domain: testDomainName
+  task-list: testTaskList
